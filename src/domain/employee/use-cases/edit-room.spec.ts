@@ -29,7 +29,7 @@ describe('Edit room', () => {
 			hasWifi: room.hasWifi,
 			hasAir: room.hasAir,
 			hasKitchen: room.hasKitchen,
-			isPetFriendlyw: room.isPetFriendly,
+			isPetFriendly: room.isPetFriendly,
 			isAvailable: room.isAvailable
 		})
 
@@ -47,7 +47,7 @@ describe('Edit room', () => {
 			hasWifi: true,
 			hasAir: true,
 			hasKitchen: true,
-			isPetFriendlyw: true,
+			isPetFriendly: true,
 			isAvailable: true
 		})
 
