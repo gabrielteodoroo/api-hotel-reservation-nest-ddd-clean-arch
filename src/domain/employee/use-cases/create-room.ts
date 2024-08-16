@@ -10,7 +10,7 @@ type Request = {
 	hasWifi?: boolean
 	hasAir?: boolean
 	hasKitchen?: boolean
-	isPetFriendlyw?: boolean
+	isPetFriendly?: boolean
 	isAvailable?: boolean
 }
 
