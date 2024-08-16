@@ -51,8 +51,6 @@ describe('CreateBookingController', () => {
 				roomId: room.id
 			})
 
-		console.log(response)
-
 		expect(response.statusCode).toBe(201)
 		expect(response.body).toHaveProperty('id')
 
