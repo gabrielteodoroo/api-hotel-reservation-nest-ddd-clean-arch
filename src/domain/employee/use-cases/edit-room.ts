@@ -12,7 +12,7 @@ type Request = {
 	hasWifi: boolean
 	hasAir: boolean
 	hasKitchen: boolean
-	isPetFriendlyw: boolean
+	isPetFriendly: boolean
 	isAvailable: boolean
 }
 
@@ -36,7 +36,7 @@ export class EditRoomUseCase {
 		room.hasWifi = data.hasWifi
 		room.hasAir = data.hasAir
 		room.hasKitchen = data.hasKitchen
-		room.isPetFriendly = data.isPetFriendlyw
+		room.isPetFriendly = data.isPetFriendly
 		room.isAvailable = data.isAvailable
 
 		await this.roomRepository.save(room)
