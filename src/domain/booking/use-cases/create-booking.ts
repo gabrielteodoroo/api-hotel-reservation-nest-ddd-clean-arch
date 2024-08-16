@@ -46,8 +46,7 @@ export class CreateBookingUseCase {
 			room: roomExists,
 			days: data.days,
 			customer: data.customer,
-			email: emailObject,
-			isActive: data.isActive
+			email: emailObject
 		})
 
 		await this.bookingRepository.create(booking)
