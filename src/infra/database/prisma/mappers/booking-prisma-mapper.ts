@@ -19,10 +19,13 @@ export class BookingPrismaMapper {
 				days: entity.days,
 				email: Email.create(entity.email),
 				isActive: entity.isActive,
-				room: Room.create({
-					...entity.room,
-					price: Money.create(entity.room.price)
-				})
+				room: Room.create(
+					{
+						...entity.room,
+						price: Money.create(entity.room.price)
+					},
+					new Identity(entity.room.id)
+				)
 			},
 			new Identity(entity.id)
 		)
