@@ -4,6 +4,8 @@ import { RoomRepository } from '@/domain/employee/repositories/room-repository'
 import { DatabaseModule } from '@/infra/database/database.module'
 import { Module } from '@nestjs/common'
 import { CreateBookingController } from './controllers/create-booking.controller'
+import { ListBookingsUseCase } from '@/domain/booking/use-cases/list-bookings'
+import { ListBookingsController } from './controllers/list-bookings.controller'
 
 @Module({
 	imports: [DatabaseModule],
@@ -20,8 +22,15 @@ import { CreateBookingController } from './controllers/create-booking.controller
 				)
 			},
 			inject: [BookingRepository, RoomRepository]
+		},
+		{
+			provide: ListBookingsUseCase,
+			useFactory: (bookingRepository: BookingRepository) => {
+				return new ListBookingsUseCase(bookingRepository)
+			},
+			inject: [BookingRepository]
 		}
 	],
-	controllers: [CreateBookingController]
+	controllers: [CreateBookingController, ListBookingsController]
 })
 export class BookingModule {}
