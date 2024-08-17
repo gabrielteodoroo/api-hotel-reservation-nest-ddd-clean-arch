@@ -10,10 +10,9 @@ import {
 } from 'class-validator'
 
 enum Environment {
-	Development = 'development',
-	Production = 'production',
-	Test = 'test',
-	Provision = 'provision'
+	DEVELOPMENT = 'development',
+	PRODUCTION = 'production',
+	TEST = 'test'
 }
 
 class EnvironmentVariables {
@@ -30,6 +29,21 @@ class EnvironmentVariables {
 
 	@IsString()
 	JWT_TOKEN: string
+
+	@IsString()
+	S3_BUCKET_NAME: string
+
+	@IsString()
+	S3_REGION: string
+
+	@IsString()
+	S3_KEY_ID: string
+
+	@IsString()
+	S3_ACCESS_KEY: string
+
+	@IsString()
+	S3_ENDPOINT: string
 }
 
 export function validate(config: Record<string, unknown>) {
