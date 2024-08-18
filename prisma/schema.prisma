@@ -16,9 +16,11 @@ datasource db {
 model Employee {
   id String @id @default(uuid()) @db.Uuid
 
-  name     String
-  email    String @unique
-  password String
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("employees")
 }
@@ -29,11 +31,13 @@ model Room {
   name          String
   price         Int
   image         String
-  hasWifi       Boolean @map("has_wifi")
-  hasAir        Boolean @map("has_air")
-  hasKitchen    Boolean @map("has_kitchen")
-  isPetFriendly Boolean @map("is_pet_friendly")
-  isAvailable   Boolean @map("is_available")
+  hasWifi       Boolean  @map("has_wifi")
+  hasAir        Boolean  @map("has_air")
+  hasKitchen    Boolean  @map("has_kitchen")
+  isPetFriendly Boolean  @map("is_pet_friendly")
+  isAvailable   Boolean  @map("is_available")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
 
   Booking Booking[]
 
@@ -43,10 +47,12 @@ model Room {
 model Booking {
   id String @id @default(uuid()) @db.Uuid
 
-  days     Int
-  customer String
-  email    String
-  isActive Boolean @map("is_active")
+  days      Int
+  customer  String
+  email     String
+  isActive  Boolean  @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   room   Room   @relation(fields: [roomId], references: [id])
   roomId String @map("room_id") @db.Uuid
