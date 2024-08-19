@@ -10,11 +10,25 @@ type BookingType = {
 	customer: string
 	email: Email
 	isActive: boolean
+	createdAt: Date
+	updatedAt: Date
 }
 
 export default class Booking extends AggregateRoot<BookingType> {
-	static create(data: Optional<BookingType, 'isActive'>, id?: Identity) {
-		return new Booking({ ...data, isActive: data.isActive ?? true }, id)
+	static create(
+		data: Optional<BookingType, 'isActive' | 'createdAt' | 'updatedAt'>,
+		id?: Identity
+	) {
+		const now = new Date()
+		return new Booking(
+			{
+				...data,
+				isActive: data.isActive ?? true,
+				createdAt: data.createdAt ?? now,
+				updatedAt: data.updatedAt ?? now
+			},
+			id
+		)
 	}
 
 	get room() {
@@ -35,6 +49,14 @@ export default class Booking extends AggregateRoot<BookingType> {
 
 	get isActive() {
 		return this.attributes.isActive
+	}
+
+	get createdAt() {
+		return this.attributes.createdAt
+	}
+
+	get updatedAt() {
+		return this.attributes.updatedAt
 	}
 
 	set isActive(isActive: boolean) {
