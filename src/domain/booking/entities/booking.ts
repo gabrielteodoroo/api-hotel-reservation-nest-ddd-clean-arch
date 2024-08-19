@@ -62,4 +62,8 @@ export default class Booking extends AggregateRoot<BookingType> {
 	set isActive(isActive: boolean) {
 		this.attributes.isActive = isActive
 	}
+
+	set updatedAt(updatedAt: Date) {
+		this.attributes.updatedAt = updatedAt
+	}
 }

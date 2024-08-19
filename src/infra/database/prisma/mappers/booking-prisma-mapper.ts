@@ -25,7 +25,9 @@ export class BookingPrismaMapper {
 						price: Money.create(entity.room.price)
 					},
 					new Identity(entity.room.id)
-				)
+				),
+				createdAt: entity.createdAt,
+				updatedAt: entity.updatedAt
 			},
 			new Identity(entity.id)
 		)
@@ -38,7 +40,9 @@ export class BookingPrismaMapper {
 			days: entity.days,
 			email: entity.email.value,
 			isActive: entity.isActive,
-			roomId: entity.room.id.toString()
+			roomId: entity.room.id.toString(),
+			createdAt: entity.createdAt,
+			updatedAt: entity.updatedAt
 		}
 	}
 }

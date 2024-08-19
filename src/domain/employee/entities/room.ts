@@ -78,6 +78,14 @@ export default class Room extends Entity<RoomType> {
 		return this.attributes.isAvailable
 	}
 
+	get createdAt() {
+		return this.attributes.createdAt
+	}
+
+	get updatedAt() {
+		return this.attributes.updatedAt
+	}
+
 	set name(name: string) {
 		this.attributes.name = name
 	}
@@ -108,5 +116,9 @@ export default class Room extends Entity<RoomType> {
 
 	set isAvailable(isAvailable: boolean) {
 		this.attributes.isAvailable = isAvailable
+	}
+
+	set updatedAt(updatedAt: Date) {
+		this.attributes.updatedAt = updatedAt
 	}
 }

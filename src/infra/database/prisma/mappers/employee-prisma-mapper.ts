@@ -9,7 +9,9 @@ export class EmployeePrismaMapper {
 			{
 				name: entity.name,
 				email: Email.create(entity.email),
-				password: entity.password
+				password: entity.password,
+				createdAt: entity.createdAt,
+				updatedAt: entity.updatedAt
 			},
 			new Identity(entity.id)
 		)
@@ -20,7 +22,9 @@ export class EmployeePrismaMapper {
 			id: entity.id.toString(),
 			name: entity.name,
 			email: entity.email.value,
-			password: entity.password
+			password: entity.password,
+			createdAt: entity.createdAt,
+			updatedAt: entity.updatedAt
 		}
 	}
 }

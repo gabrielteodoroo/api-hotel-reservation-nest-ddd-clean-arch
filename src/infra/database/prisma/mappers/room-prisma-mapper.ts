@@ -14,7 +14,9 @@ export class RoomPrismaMapper {
 				hasKitchen: entity.hasKitchen,
 				hasWifi: entity.hasWifi,
 				isAvailable: entity.isAvailable,
-				isPetFriendly: entity.isPetFriendly
+				isPetFriendly: entity.isPetFriendly,
+				createdAt: entity.createdAt,
+				updatedAt: entity.updatedAt
 			},
 			new Identity(entity.id)
 		)
@@ -30,7 +32,9 @@ export class RoomPrismaMapper {
 			hasKitchen: entity.hasKitchen,
 			hasWifi: entity.hasWifi,
 			isAvailable: entity.isAvailable,
-			isPetFriendly: entity.isPetFriendly
+			isPetFriendly: entity.isPetFriendly,
+			createdAt: entity.createdAt,
+			updatedAt: entity.updatedAt
 		}
 	}
 }

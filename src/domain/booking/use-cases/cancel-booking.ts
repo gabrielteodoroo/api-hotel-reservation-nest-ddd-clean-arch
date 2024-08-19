@@ -29,6 +29,7 @@ export class CancelBookingUseCase {
 		const { room } = bookingExists
 
 		room.isAvailable = true
+		room.updatedAt = new Date()
 
 		await this.roomRepository.save(room)
 

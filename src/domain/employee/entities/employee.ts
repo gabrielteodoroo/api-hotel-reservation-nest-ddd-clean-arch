@@ -7,8 +7,8 @@ type EmployeeType = {
 	name: string
 	email: Email
 	password: string
-	createdAt: Date
-	updatedAt: Date
+	createdAt?: Date
+	updatedAt?: Date
 }
 
 export default class Employee extends Entity<EmployeeType> {
@@ -16,12 +16,9 @@ export default class Employee extends Entity<EmployeeType> {
 		data: Optional<EmployeeType, 'createdAt' | 'updatedAt'>,
 		id?: Identity
 	) {
-		const now = new Date()
 		return new Employee(
 			{
-				...data,
-				createdAt: data.createdAt ?? now,
-				updatedAt: data.updatedAt ?? now
+				...data
 			},
 			id
 		)
@@ -57,5 +54,9 @@ export default class Employee extends Entity<EmployeeType> {
 
 	set password(password: string) {
 		this.attributes.password = password
+	}
+
+	set updatedAt(updatedAt: Date) {
+		this.attributes.updatedAt = updatedAt
 	}
 }

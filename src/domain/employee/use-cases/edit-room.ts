@@ -38,6 +38,7 @@ export class EditRoomUseCase {
 		room.hasKitchen = data.hasKitchen
 		room.isPetFriendly = data.isPetFriendly
 		room.isAvailable = data.isAvailable
+		room.updatedAt = new Date()
 
 		await this.roomRepository.save(room)
 

@@ -47,6 +47,7 @@ export class EditEmployeeUseCase {
 		employee.name = name
 		employee.email = emailEmployee
 		employee.password = hashedPassword
+		employee.updatedAt = new Date()
 
 		await this.employeeRepository.save(employee)
 
