@@ -12,6 +12,8 @@ type RoomType = {
 	hasKitchen: boolean
 	isPetFriendly: boolean
 	isAvailable: boolean
+	createdAt: Date
+	updatedAt: Date
 }
 
 export default class Room extends Entity<RoomType> {
@@ -23,9 +25,12 @@ export default class Room extends Entity<RoomType> {
 			| 'hasKitchen'
 			| 'isPetFriendly'
 			| 'isAvailable'
+			| 'createdAt'
+			| 'updatedAt'
 		>,
 		id?: Identity
 	) {
+		const now = new Date()
 		return new Room(
 			{
 				...data,
@@ -33,7 +38,9 @@ export default class Room extends Entity<RoomType> {
 				hasAir: data.hasAir ?? false,
 				hasKitchen: data.hasKitchen ?? false,
 				isPetFriendly: data.isPetFriendly ?? false,
-				isAvailable: data.isAvailable ?? true
+				isAvailable: data.isAvailable ?? true,
+				createdAt: data.createdAt ?? now,
+				updatedAt: data.updatedAt ?? now
 			},
 			id
 		)
